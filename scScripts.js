@@ -61,7 +61,7 @@ window.onload = function() {
     //load variables
     var p1x=w/2+100, p1y=h/2, p2x=w/2-100, p2y=h/2,size=40;
     var gameOn=0;
-    var p1Score=0, p2Score=0, 
+    var p1Score=0, p2Score=0; 
     
 
     // moving stars around the screen and update the players movement
@@ -77,7 +77,7 @@ window.onload = function() {
         starArray.push(star.create(w/2,5*i+50,5-Math.random()*5,5-Math.random()*5));
     }
    
-function starsUpdate () {
+    function starsUpdate () {
         // to move the stars around
        //  draw star on screen only if visible
        for (var i = 0; i < starCount; i++) {
@@ -116,23 +116,10 @@ function starsUpdate () {
                 else{gameOn=0}
             }
  
-}, false);
+    }, false);
 
     //  player 2 movement keyboard commands
     addEventListener("keyup", function (e) {
-
-        if (e.keyCode == 87) { //  (key: w )
-            p2y-=10;
-        }
-        else if (e.keyCode == 83) { //  (key: s)
-            p2y+=10;
-        }
-        else if (e.keyCode == 65) { //  (key: a)
-            p2x-=10;
-        }
-        else if (e.keyCode == 68) { //  (key: d)
-            p2x+=10;
-        }
         //take keycode out of array (not being held down anymore)
         delete keysDown[e.keyCode];
     }, false); 
@@ -194,5 +181,6 @@ function starsUpdate () {
             p2Score++;
             $("#p2ScoreDisp").text(p2Score);
         
+        }
     }
 } // end load doc
